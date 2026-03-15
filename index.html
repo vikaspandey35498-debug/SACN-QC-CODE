@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Beautiful Lady</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: linear-gradient(180deg, #fff7fb 0%, #ffeef5 45%, #fff9fc 100%); color: #5b3b46; overflow-x: hidden; }
+    .petals { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 2; }
+    .petal { position: absolute; top: -10vh; font-size: 22px; opacity: 0.75; animation-name: fall; animation-timing-function: linear; animation-iteration-count: infinite; filter: drop-shadow(0 4px 6px rgba(176, 76, 114, 0.18)); }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; position: relative; background: radial-gradient(circle at top, rgba(255,255,255,0.95), rgba(255, 235, 243, 0.9)); }
+    .glow { position: absolute; width: 320px; height: 320px; border-radius: 50%; filter: blur(70px); opacity: 0.45; z-index: 0; }
+    .glow.one { background: #ffd2e3; top: 8%; left: -80px; }
+    .glow.two { background: #ffe5b8; bottom: 10%; right: -90px; }
+    .content { position: relative; z-index: 3; max-width: 760px; }
+    h1 { font-size: clamp(2.4rem, 7vw, 4.6rem); margin: 0 0 14px; letter-spacing: 1px; color: #b04c72; }
+    .subtitle { font-size: 1.1rem; line-height: 1.8; max-width: 680px; margin: 0 auto 30px; color: #6d4b57; }
+    .heart { font-size: 2rem; margin-bottom: 18px; animation: float 2.5s ease-in-out infinite; }
+    .btn { border: none; padding: 16px 28px; border-radius: 999px; background: linear-gradient(135deg, #e77fa8, #cf5f89); color: white; font-size: 1rem; cursor: pointer; box-shadow: 0 12px 30px rgba(207, 95, 137, 0.28); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 16px 34px rgba(207, 95, 137, 0.34); }
+    .hidden-section { display: none; padding: 32px 18px 60px; max-width: 1200px; margin: 0 auto; animation: fadeIn 1s ease forwards; position: relative; z-index: 3; }
+    .message-card { background: rgba(255,255,255,0.82); border: 1px solid rgba(232, 167, 191, 0.35); box-shadow: 0 18px 40px rgba(176, 76, 114, 0.12); border-radius: 28px; padding: 28px; margin: 0 auto 28px; max-width: 900px; backdrop-filter: blur(8px); }
+    .message-card h2 { margin-top: 0; color: #b04c72; font-size: 2rem; }
+    .message-card p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 0; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+    .photo { background: rgba(255,255,255,0.82); border-radius: 24px; padding: 10px; box-shadow: 0 14px 35px rgba(122, 76, 96, 0.12); overflow: hidden; border: 1px solid rgba(232, 167, 191, 0.28); }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 18px; }
+    .placeholder { aspect-ratio: 3 / 4; display: flex; align-items: center; justify-content: center; text-align: center; color: #9b7080; background: linear-gradient(135deg, #fff, #ffe8f1); border-radius: 18px; padding: 16px; line-height: 1.6; }
+    .footer-note { text-align: center; margin-top: 28px; color: #8b6271; font-size: 0.95rem; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes fall { 0% { transform: translateY(-10vh) translateX(0) rotate(0deg); } 25% { transform: translateY(25vh) translateX(12px) rotate(90deg); } 50% { transform: translateY(50vh) translateX(-12px) rotate(180deg); } 75% { transform: translateY(75vh) translateX(16px) rotate(270deg); } 100% { transform: translateY(110vh) translateX(-8px) rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="petals" aria-hidden="true">
+    <span class="petal" style="left: 4%; animation-duration: 12s; animation-delay: 0s;">🌹</span>
+    <span class="petal" style="left: 12%; animation-duration: 14s; animation-delay: 2s;">🌹</span>
+    <span class="petal" style="left: 20%; animation-duration: 10s; animation-delay: 1s;">🌹</span>
+    <span class="petal" style="left: 29%; animation-duration: 16s; animation-delay: 3s;">🌹</span>
+    <span class="petal" style="left: 38%; animation-duration: 11s; animation-delay: 5s;">🌹</span>
+    <span class="petal" style="left: 47%; animation-duration: 15s; animation-delay: 1.5s;">🌹</span>
+    <span class="petal" style="left: 56%; animation-duration: 13s; animation-delay: 4s;">🌹</span>
+    <span class="petal" style="left: 65%; animation-duration: 17s; animation-delay: 2.5s;">🌹</span>
+    <span class="petal" style="left: 74%; animation-duration: 12s; animation-delay: 6s;">🌹</span>
+    <span class="petal" style="left: 83%; animation-duration: 14s; animation-delay: 3.5s;">🌹</span>
+    <span class="petal" style="left: 92%; animation-duration: 11s; animation-delay: 5.5s;">🌹</span>
+  </div>
+
+  <section class="hero">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+    <div class="content">
+      <div class="heart">❤️</div>
+      <h1>My Beautiful Lady</h1>
+      <p class="subtitle">A small little corner made with love, just for you. Every photo here holds a memory, and every memory reminds me how beautiful life feels with you in it.</p>
+      <button class="btn" onclick="revealLove()">Open My Heart</button>
+    </div>
+  </section>
+
+  <section id="loveSection" class="hidden-section">
+    <div class="message-card">
+      <h2>For You, My Love</h2>
+      <p>My beautiful baby girl, my sunshine 😘😘😘 I wish you a very happy good morning baby girl, my woman, you are the best and most beautiful girl in my life. With you, my life has taken a very beautiful turn, and we will grow together and build a very beautiful life.<br><br>I love you so much ❤️</p>
+    </div>
+
+    <div class="gallery">
+      <div class="photo"><img src="images/photo1.jpg" alt="Couple photo 1" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo1.jpg</strong></div>'"></div>
+      <div class="photo"><img src="images/photo2.jpg" alt="Couple photo 2" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo2.jpg</strong></div>'"></div>
+      <div class="photo"><img src="images/photo3.jpg" alt="Couple photo 3" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo3.jpg</strong></div>'"></div>
+      <div class="photo"><img src="images/photo4.jpg" alt="Couple photo 4" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo4.jpg</strong></div>'"></div>
+      <div class="photo"><img src="images/photo5.jpg" alt="Couple photo 5" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo5.jpg</strong></div>'"></div>
+      <div class="photo"><img src="images/photo6.jpg" alt="Couple photo 6" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo6.jpg</strong></div>'"></div>
+      <div class="photo"><img src="images/photo7.jpg" alt="Couple photo 7" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo7.jpg</strong></div>'"></div>
+      <div class="photo"><img src="images/photo8.jpg" alt="Couple photo 8" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo8.jpg</strong></div>'"></div>
+      <div class="photo"><img src="images/photo9.jpg" alt="Couple photo 9" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo9.jpg</strong></div>'"></div>
+      <div class="photo"><img src="images/photo10.jpg" alt="Couple photo 10" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo10.jpg</strong></div>'"></div>
+      <div class="photo"><img src="images/photo11.jpg" alt="Couple photo 11" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add your photo as<br><strong>images/photo11.jpg</strong></div>'"></div>
+    </div>
+
+    <div class="footer-note">Made with all my love, only for you ✨</div>
+  </section>
+
+  <script>
+    function revealLove() {
+      const section = document.getElementById('loveSection');
+      section.style.display = 'block';
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
